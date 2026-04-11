@@ -1,0 +1,60 @@
+name: actions-lints
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/*.yml"
+  workflow_call:
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    name: actionlint
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: raven-actions/actionlint@205b530c5d9fa8f44ae9ed59f341a0db994aa6f8 # v2.1.2
+
+  ghalint:
+    runs-on: ubuntu-latest
+    name: ghalint
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Install ghalint
+        env:
+          # Pin to ghalint
+          GHALINT_VERSION: v1.5.5
+        run: |
+          curl -fsSL "https://github.com/suzuki-shunsuke/ghalint/releases/download/${GHALINT_VERSION}/ghalint_${GHALINT_VERSION#v}_linux_amd64.tar.gz" \
+            | tar -xz -C /usr/local/bin ghalint
+      - name: Run ghalint
+        run: ghalint run
+
+  zizmor:
+    runs-on: ubuntu-latest
+    name: zizmor
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: zizmorcore/zizmor-action@71321a20a9ded102f6e9ce5718a2fcec2c4f70d8 # v0.5.2
+        with:
+          advanced-security: false

@@ -8,3 +8,6 @@ pre-commit:
     - run: ghalint run
     - run: actionlint
     - run: zizmor -p .
+commit-msg:
+  jobs:
+    - run: npx --no -- commitlint --edit {1}

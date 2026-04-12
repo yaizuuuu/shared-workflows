@@ -2,6 +2,15 @@
 
 他リポジトリから呼び出すための再利用可能な GitHub Actions ワークフロー集です。
 
+## セットアップ
+
+クローン後、以下のコマンドを実行してください。
+
+```sh
+npm install
+npx lefthook install
+```
+
 ## ワークフロー一覧
 
 ### `actions-lints`

@@ -8,7 +8,6 @@
 
 ```sh
 npm install
-npx lefthook install
 ```
 
 ## ワークフロー一覧

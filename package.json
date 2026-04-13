@@ -1,18 +1,10 @@
 {
-  "name": "shared-workflows",
-  "version": "1.0.0",
-  "description": "他リポジトリから呼び出すための再利用可能な GitHub Actions ワークフロー集です。",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
     "lefthook": "^2.1.5"
+  },
+  "scripts": {
+    "prepare": "lefthook install"
   }
 }

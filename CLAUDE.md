@@ -27,6 +27,23 @@ git 履歴に対してシークレットスキャンを実施:
 
 PRおよび `workflow_call` でトリガーされる。
 
+### `conventional-commits.yml`
+
+PRタイトルと各コミットメッセージが Conventional Commits 1.0.0 に準拠しているか検証する:
+
+- **amannn/action-semantic-pull-request** — PRタイトルのチェック
+- **wagoid/commitlint-github-action** — 各コミットメッセージのチェック（`commitlint.config.js` で `@commitlint/config-conventional` を使用）
+
+PRおよび `workflow_call` でトリガーされる。
+
+### `create-release.yml`
+
+`v*` パターンのタグプッシュ時に GitHub Release を自動作成する:
+
+- `gh release create --generate-notes` で前回タグからの変更を自動生成
+
+`v*` タグプッシュでトリガーされる（`workflow_call` 非対応）。
+
 ## 規約
 
 ワークフローを追加・修正する際は以下を守ること:

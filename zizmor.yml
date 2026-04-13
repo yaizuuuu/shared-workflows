@@ -1,0 +1,6 @@
+rules:
+  concurrency-limits:
+    ignore:
+      - actions-lints.yml
+      - conventional-commits.yml
+      - secret-scan.yml

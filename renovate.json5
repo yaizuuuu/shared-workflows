@@ -1,33 +1,41 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automerge": false,
-  "timezone": "Asia/Tokyo",
-  "extends": [
-    "config:best-practices",
-    ":disableRateLimiting"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  automerge: false,
+  timezone: 'Asia/Tokyo',
+  extends: [
+    'config:best-practices',
+    ':disableRateLimiting',
   ],
-  "regexManagers": [
+  customManagers: [
     {
-      "fileMatch": ["^\\.github/workflows/secret-scan\\.yml$"],
-      "matchStrings": [
-        "TARGET_HASH: (?<currentDigest>.*) # (?<currentValue>.*)"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^\\.github/workflows/secret-scan\\.yml$/',
       ],
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "awslabs/git-secrets"
+      matchStrings: [
+        'TARGET_HASH: (?<currentDigest>.*) # (?<currentValue>.*)',
+      ],
+      datasourceTemplate: 'github-tags',
+      depNameTemplate: 'awslabs/git-secrets',
     },
     {
-      "fileMatch": ["^\\.github/workflows/actions-lints\\.yml$"],
-      "matchStrings": [
-        "GHALINT_VERSION: (?<currentValue>.*)"
+      customType: 'regex',
+      managerFilePatterns: [
+        '/^\\.github/workflows/actions-lints\\.yml$/',
       ],
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "suzuki-shunsuke/ghalint"
-    }
+      matchStrings: [
+        'GHALINT_VERSION: (?<currentValue>.*)',
+      ],
+      datasourceTemplate: 'github-tags',
+      depNameTemplate: 'suzuki-shunsuke/ghalint',
+    },
   ],
-    "packageRules": [
+  packageRules: [
     {
-      "matchPackageNames": ["*"],
-      "minimumReleaseAge": "14 days"
-    }
-  ]
+      matchPackageNames: [
+        '*',
+      ],
+      minimumReleaseAge: '14 days',
+    },
+  ],
 }

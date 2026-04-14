@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>yaizuuuu/my-renovate-config"]
+  "extends": ["github>yaizuuuu/my-renovate-config"],
   "regexManagers": [
     {
       "fileMatch": ["^\\.github/workflows/secret-scan\\.yml$"],
@@ -12,9 +12,7 @@
     },
     {
       "fileMatch": ["^\\.github/workflows/actions-lints\\.yml$"],
-      "matchStrings": [
-        "GHALINT_VERSION: (?<currentValue>.*)"
-      ],
+      "matchStrings": ["GHALINT_VERSION: (?<currentValue>.*)"],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "suzuki-shunsuke/ghalint"
     }

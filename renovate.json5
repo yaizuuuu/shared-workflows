@@ -1,11 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "automerge": false,
-  "timezone": "Asia/Tokyo",
-  "extends": [
-    "config:best-practices",
-    ":disableRateLimiting"
-  ],
+  "extends": ["github>yaizuuuu/my-renovate-config"]
   "regexManagers": [
     {
       "fileMatch": ["^\\.github/workflows/secret-scan\\.yml$"],
@@ -22,12 +17,6 @@
       ],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "suzuki-shunsuke/ghalint"
-    }
-  ],
-    "packageRules": [
-    {
-      "matchPackageNames": ["*"],
-      "minimumReleaseAge": "14 days"
     }
   ]
 }

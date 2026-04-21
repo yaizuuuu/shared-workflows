@@ -33,7 +33,7 @@ jobs:
           persist-credentials: false
       - name: Install ghalint
         env:
-          # Pin to ghalint
+          # renovate: datasource=github-releases packageName=suzuki-shunsuke/ghalint
           GHALINT_VERSION: v1.5.5
         run: |
           curl -fsSL "https://github.com/suzuki-shunsuke/ghalint/releases/download/${GHALINT_VERSION}/ghalint_${GHALINT_VERSION#v}_linux_amd64.tar.gz" \

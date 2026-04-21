@@ -9,12 +9,6 @@
       ],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "awslabs/git-secrets"
-    },
-    {
-      "fileMatch": ["^\\.github/workflows/actions-lints\\.yml$"],
-      "matchStrings": ["GHALINT_VERSION: (?<currentValue>.*)"],
-      "datasourceTemplate": "github-tags",
-      "depNameTemplate": "suzuki-shunsuke/ghalint"
     }
   ]
 }
